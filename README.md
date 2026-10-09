@@ -1,4 +1,4 @@
-# Classifier-Conditioned BLIP-2 with Adaptive Uncertainty Thresholding for Faithful Chest X-Ray Report Generation in Low-Resource Settings
+# Classifier Guided Report Generation with Uncertainty Gating for Chest Radiographs in a Bangladeshi Hospital Cohort
 
 [![Python 3.10+](https://img.shields.io/badge/python-3.10%2B-blue.svg)](https://www.python.org/)
 [![PyTorch 2.2+](https://img.shields.io/badge/PyTorch-2.2%2B-ee4c2c.svg)](https://pytorch.org/)
@@ -6,7 +6,7 @@
 [![Hugging Face](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-BLIP--2-orange)](https://huggingface.co/Salesforce/blip2-opt-2.7b)
 
 Official source code and clinical evaluation artifacts for the paper:  
-**"Classifier-Conditioned BLIP-2 with Adaptive Uncertainty Thresholding for Faithful Chest X-Ray Report Generation in Low-Resource Settings"**  
+**"Classifier Guided Report Generation with Uncertainty Gating for Chest Radiographs in a Bangladeshi Hospital Cohort"**  
 *Discover Artificial Intelligence* (Springer Nature), 2026.
 
 ---
@@ -27,7 +27,6 @@ This repository implements a **guided hybrid pipeline** evaluated on a single-ce
 ## 📂 Repository Structure
 
 ```text
-├── cxr_guided_blip2_pipeline.ipynb   # Complete interactive Jupyter Notebook (Kaggle/Colab)
 ├── run_pipeline.py                   # Modular end-to-end execution script
 ├── dataset.py                        # Dataset loading, stratified 20% validation split, & templates
 ├── models.py                         # DenseNet-121 classifier, MC Dropout, Grad-CAM, & BLIP-2 LoRA
@@ -35,8 +34,6 @@ This repository implements a **guided hybrid pipeline** evaluated on a single-ce
 ├── doctor_survey/                    # Self-contained 50-case radiologist evaluation web package
 │   ├── index.html                    # Interactive browser survey interface
 │   └── cases/                        # Embedded HTML/CSS case reports with Likert rating forms
-├── figures/                          # 14 publication figures (PDF and PNG)
-├── results/                          # Precomputed scores, metrics JSON, and sample reports
 ├── requirements.txt                  # Python dependencies
 ├── LICENSE                           # MIT License
 └── README.md                         # Repository documentation
@@ -56,8 +53,8 @@ pip install -r requirements.txt
 ### 2. Dataset Preparation
 The chest X-ray images were obtained from the publicly accessible Mendeley Data archive:
 * **Dataset:** Epic Hospital Chittagong Chest X-Ray Archive (Normal and Pneumonia)
-* **DOI:** [10.17632/wndbd5r26y.3](https://doi.org/10.17632/wndbd5r26y.3)
-* **Citation:** Epic Hospital Chittagong (2024), Mendeley Data, V3.
+* **DOI:** [10.17632/wndbd5r26y.2](https://doi.org/10.17632/wndbd5r26y.2)
+* **Citation:** Epic Hospital Chittagong (2024), Mendeley Data, V2.
 
 Organise the dataset in your workspace or Kaggle input:
 ```text
@@ -71,12 +68,8 @@ Chest-X-Ray Epic Hospital Chittagong, Bangladesh pneumonia/
 ```
 
 ### 3. Running the Pipeline
-You can run the full pipeline in two ways:
+You can run the full pipeline in this way:
 
-#### Option A: Jupyter Notebook on Kaggle (Recommended)
-Upload and run [`cxr_guided_blip2_pipeline.ipynb`](cxr_guided_blip2_pipeline.ipynb) on Kaggle with GPU (T4 / P100) enabled. The notebook uses Kaggle input paths directly.
-
-#### Option B: Python Script
 ```bash
 python run_pipeline.py
 ```
