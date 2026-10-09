@@ -31,7 +31,7 @@ This repository implements a **guided hybrid pipeline** evaluated on a single-ce
 ├── dataset.py                        # Dataset loading, stratified 20% validation split, & templates
 ├── models.py                         # DenseNet-121 classifier, MC Dropout, Grad-CAM, & BLIP-2 LoRA
 ├── utils.py                          # NLG metrics (BLEU, BERTScore), statistical tests, & post-processing
-├── doctor_survey/                    # Self-contained 50-case radiologist evaluation web package
+├── doctor_survey.zip /               # Self-contained 50-case radiologist evaluation web package
 │   ├── index.html                    # Interactive browser survey interface
 │   └── cases/                        # Embedded HTML/CSS case reports with Likert rating forms
 ├── requirements.txt                  # Python dependencies
@@ -45,7 +45,7 @@ This repository implements a **guided hybrid pipeline** evaluated on a single-ce
 
 ### 1. Clone & Install Dependencies
 ```bash
-git clone https://github.com/mehedimasum/cxr-guided-blip2.git
+git clone https://github.com/Mohammed-Mehedi-Masum/cxr-guided-blip2.git
 cd cxr-guided-blip2
 pip install -r requirements.txt
 ```
